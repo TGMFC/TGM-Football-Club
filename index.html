@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Talking Game Masters FC</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="assets/img/logo-192.png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-192.png" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <img src="assets/tgm-logo.svg" alt="The Talking Game Masters Logo" class="logo" />
+      <h1>Talking Game Masters FC</h1>
+      <p class="tagline">⚽ United by the Game, Driven by the Voice</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="fixtures">Fixtures</button>
+      <button class="tab" data-tab="news">News</button>
+      <button class="tab" data-tab="rsvp">RSVP</button>
+    </div>
+
+    <div id="fixtures" class="tab-content active">
+      <h2>/fixtures</h2>
+      <div id="fixtures-list"></div>
+    </div>
+
+    <div id="news" class="tab-content">
+      <h2>/news</h2>
+      <div class="news-item">
+        <h3>Home Ground Confirmed!</h3>
+        <p>We're proud to announce our home base: Bonaero Park Sports Complex. First home game: Sep 14 vs Bonaero. Bring the noise!</p>
+      </div>
+    </div>
+
+    <div id="rsvp" class="tab-content">
+      <h2>rsvp</h2>
+      <form id="rsvp-form">
+        <label for="player-name">Full Name</label>
+        <input type="text" id="player-name" required />
+
+        <label for="game-select">Select Game</label>
+        <select id="game-select" required></select>
+
+        <button type="submit">Confirm My Spot</button>
+      </form>
+      <p id="rsvp-success" class="success hidden">✅ RSVP confirmed! WhatsApp details sent.</p>
+    </div>
+
+    <footer class="app-footer">
+      <p>© 2025 Talking Game Masters FC | #VoiceOfTheGame</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
