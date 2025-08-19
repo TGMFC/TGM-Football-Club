@@ -9,102 +9,87 @@
   <link rel="icon" type="image/png" href="assets/img/logo-192.png" />
   <link rel="apple-touch-icon" href="assets/img/logo-192.png" />
   <style>
-    /* Quick inline styling for fixtures */
-    .fixture {
-      border-bottom: 1px solid #ddd;
-      padding: 12px 0;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0;
     }
-    .fixture:last-child {
-      border: none;
+    .app-header {
+      background: #004080; /* dark accent */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .app-header .logo {
+      height: 60px;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #e6e6e6;
+    }
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .tab.active {
+      border-color: #004080;
+      background: #fff;
+    }
+    .tab-content {
+      padding: 20px;
+      background: #fff;
+      margin: 10px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .fixture {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.3s;
+    }
+    .fixture:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     .fixture .date {
       font-weight: bold;
-      color: #0056b3;
+      color: #004080;
     }
-    .fixture .match {
-      margin-top: 4px;
+    #rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #rsvp-form input,
+    #rsvp-form select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #rsvp-form button {
+      padding: 10px;
+      background: #0056b3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    #rsvp-success {
+      margin-top: 12px;
+      color: green;
+      font-weight: bold;
     }
   </style>
+  <!-- 👆 End of pasted CSS -->
 </head>
-<a href="https://www.totalgamemastery.co.za" target="_blank">Visit Total Game Mastery</a>
-  <body>
-  <div class="app-container">
-    <header class="app-header">
-      <img src="assets/tgm-logo.svg" alt="logo-192.png" class="logo" />
-      <h1>Total Game Mastery FC</h1>
-      <p class="tagline">⚽ United by the Game, Driven by the Voice</p>
-    </header>
 
-    <div class="tabs">
-      <button class="tab active" data-tab="fixtures">Fixtures</button>
-      <button class="tab" data-tab="news">News</button>
-      <button class="tab" data-tab="rsvp">RSVP</button>
-    </div>
-
-    <div id="fixtures" class="tab-content active">
-      <h2>Eastside United Fixtures – August & September 2025</h2>
-      <div id="fixtures-list">
-
-        <div class="fixture">
-          <div class="date">Tue, 19 Aug</div>
-          <div class="match">Edenvale vs Eastside United – 18:30</div>
-        </div>
-
-        <div class="fixture">
-          <div class="date">Sun, 24 Aug</div>
-          <div class="match">Alberton vs Eastside United – 08:30</div>
-        </div>
-
-        <div class="fixture">
-          <div class="date">Sun, 14 Sep</div>
-          <div class="match">Eastside United vs Bonaero – 08:30</div>
-        </div>
-
-        <div class="fixture">
-          <div class="date">Sun, 21 Sep</div>
-          <div class="match">Olympia vs Eastside United – 08:30</div>
-        </div>
-
-        <div class="fixture">
-          <div class="date">Wed, 24 Sep</div>
-          <div class="match">Eastside United vs Springs Premier F.C. – 08:30</div>
-        </div>
-
-        <div class="fixture">
-          <div class="date">Sun, 28 Sep</div>
-          <div class="match">Old Bens vs Eastside United – 08:30</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div id="news" class="tab-content">
-      <h2>/news</h2>
-      <div class="news-item">
-        <h3>Home Ground Confirmed!</h3>
-        <p>We're proud to announce our home base: Bonaero Park FC. First home game: Sep 14 vs Bonaero. Bring the noise!</p>
-      </div>
-    </div>
-
-    <div id="rsvp" class="tab-content">
-      <h2>rsvp</h2>
-      <form id="rsvp-form">
-        <label for="player-name">Full Name</label>
-        <input type="text" id="player-name" required />
-
-        <label for="game-select">Select Game</label>
-        <select id="game-select" required></select>
-
-        <button type="submit">Confirm My Spot</button>
-      </form>
-      <p id="rsvp-success" class="success hidden">✅ RSVP confirmed! WhatsApp details sent.</p>
-    </div>
-
-    <footer class="app-footer">
-      <p>© 2025 Total Game Mastery FC | #VoiceOfTheGame</p>
-    </footer>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
