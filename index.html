@@ -8,6 +8,23 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/png" href="assets/img/logo-192.png" />
   <link rel="apple-touch-icon" href="assets/img/logo-192.png" />
+  <style>
+    /* Quick inline styling for fixtures */
+    .fixture {
+      border-bottom: 1px solid #ddd;
+      padding: 12px 0;
+    }
+    .fixture:last-child {
+      border: none;
+    }
+    .fixture .date {
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .fixture .match {
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <a href="https://www.totalgamemastery.co.za" target="_blank">Visit Total Game Mastery</a>
   <body>
@@ -25,8 +42,40 @@
     </div>
 
     <div id="fixtures" class="tab-content active">
-      <h2>/fixtures</h2>
-      <div id="fixtures-list"></div>
+      <h2>Eastside United Fixtures – August & September 2025</h2>
+      <div id="fixtures-list">
+
+        <div class="fixture">
+          <div class="date">Tue, 19 Aug</div>
+          <div class="match">Edenvale vs Eastside United – 18:30</div>
+        </div>
+
+        <div class="fixture">
+          <div class="date">Sun, 24 Aug</div>
+          <div class="match">Alberton vs Eastside United – 08:30</div>
+        </div>
+
+        <div class="fixture">
+          <div class="date">Sun, 14 Sep</div>
+          <div class="match">Eastside United vs Bonaero – 08:30</div>
+        </div>
+
+        <div class="fixture">
+          <div class="date">Sun, 21 Sep</div>
+          <div class="match">Olympia vs Eastside United – 08:30</div>
+        </div>
+
+        <div class="fixture">
+          <div class="date">Wed, 24 Sep</div>
+          <div class="match">Eastside United vs Springs Premier F.C. – 08:30</div>
+        </div>
+
+        <div class="fixture">
+          <div class="date">Sun, 28 Sep</div>
+          <div class="match">Old Bens vs Eastside United – 08:30</div>
+        </div>
+
+      </div>
     </div>
 
     <div id="news" class="tab-content">
@@ -59,6 +108,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
-
-
