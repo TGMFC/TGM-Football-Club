@@ -10,28 +10,130 @@
   <link rel="apple-touch-icon" href="assets/img/logo-192.png" />
 
   <style>
-    body { font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333; margin: 0; }
-    .app-header { background: #004080; color: #fff; padding: 20px; text-align: center; }
-    .logo { height: 60px; margin-bottom: 10px; }
-    .tabs { display: flex; justify-content: center; background: #e6e6e6; }
-    .tab { padding: 12px 20px; cursor: pointer; font-weight: bold; border: none; }
-    .tab.active { background: #fff; border-bottom: 3px solid #004080; }
-    .tab-content { padding: 20px; background: #fff; margin: 10px auto;
-                   max-width: 800px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .fixture { border: 1px solid #ddd; border-radius: 6px; padding: 15px;
-                margin-bottom: 12px; transition: box-shadow 0.3s; }
-    .fixture:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-    .date { font-weight: bold; color: #004080; }
-    #rsvp-form { display: flex; flex-direction: column; gap: 10px; }
-    #rsvp-form input, #rsvp-form select {
-      padding: 8px; border: 1px solid #ccc; border-radius: 4px;
+    :root {
+      --primary: #000;   /* Black */
+      --accent: #FFD700; /* Yellow (Gold) */
+      --light: #f9f9f9;
+      --text: #333;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* HEADER */
+    .app-header {
+      background: var(--primary);
+      color: var(--accent);
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    .tagline {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #222;
+    }
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      background: transparent;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .tab.active {
+      background: var(--accent);
+      color: #000;
+    }
+    .tab:hover {
+      background: #444;
+    }
+
+    /* CONTENT BOXES */
+    .tab-content {
+      padding: 20px;
+      background: #fff;
+      margin: 15px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    /* FIXTURE CARDS */
+    .fixture {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .fixture-header {
+      background: var(--primary);
+      color: var(--accent);
+      padding: 10px;
+      font-weight: bold;
+    }
+    .fixture-body {
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    /* RSVP FORM */
+    #rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #rsvp-form input,
+    #rsvp-form select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
     #rsvp-form button {
-      padding: 10px; background: #0056b3; color: #fff;
-      border: none; border-radius: 4px; cursor: pointer; font-size: 1em;
+      padding: 10px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
     }
-    #rsvp-success { margin-top: 12px; color: green; font-weight: bold; }
-    .app-footer { text-align: center; padding: 15px; font-size: 0.9rem; color: #777; }
+    #rsvp-form button:hover {
+      background: #e6c200;
+    }
+    #rsvp-success {
+      margin-top: 12px;
+      color: green;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    .app-footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #666;
+      background: #111;
+      color: #bbb;
+    }
   </style>
 </head>
 <body>
@@ -48,25 +150,91 @@
       <button class="tab" data-tab="rsvp">RSVP</button>
     </div>
 
+    <!-- FIXTURES TAB -->
     <div id="fixtures" class="tab-content active">
       <h2>Fixtures</h2>
-      <!-- Your fixture blocks go here -->
+
+      <div class="fixture">
+        <div class="fixture-header">Tue, 19 Aug</div>
+        <div class="fixture-body">Edenvale vs Eastside United – 18:30</div>
+      </div>
+
+      <div class="fixture">
+        <div class="fixture-header">Sun, 24 Aug</div>
+        <div class="fixture-body">Alberton vs Eastside United – 08:30</div>
+      </div>
+
+      <div class="fixture">
+        <div class="fixture-header">Sun, 14 Sep</div>
+        <div class="fixture-body">Eastside United vs Bonaero – 08:30</div>
+      </div>
+
+      <div class="fixture">
+        <div class="fixture-header">Sun, 21 Sep</div>
+        <div class="fixture-body">Olympia vs Eastside United – 08:30</div>
+      </div>
+
+      <div class="fixture">
+        <div class="fixture-header">Wed, 24 Sep</div>
+        <div class="fixture-body">Eastside United vs Springs Premier F.C. – 08:30</div>
+      </div>
+
+      <div class="fixture">
+        <div class="fixture-header">Sun, 28 Sep</div>
+        <div class="fixture-body">Old Bens vs Eastside United – 08:30</div>
+      </div>
     </div>
 
+    <!-- NEWS TAB -->
     <div id="news" class="tab-content">
       <h2>News</h2>
-      <!-- News content -->
+      <p>No updates yet. Stay tuned!</p>
     </div>
 
+    <!-- RSVP TAB -->
     <div id="rsvp" class="tab-content">
       <h2>RSVP</h2>
-      <!-- RSVP form -->
+      <form id="rsvp-form">
+        <input type="text" placeholder="Your Name" required />
+        <select required>
+          <option value="">Select Fixture</option>
+          <option value="edenvale">Edenvale vs Eastside United</option>
+          <option value="alberton">Alberton vs Eastside United</option>
+          <option value="bonaero">Eastside United vs Bonaero</option>
+        </select>
+        <button type="submit">Submit RSVP</button>
+      </form>
+      <div id="rsvp-success"></div>
     </div>
 
     <footer class="app-footer">
       <p>© 2025 Total Game Mastery FC | #VoiceOfTheGame</p>
     </footer>
   </div>
-  <script src="app.js"></script>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+
+    // RSVP form
+    const form = document.getElementById("rsvp-form");
+    const success = document.getElementById("rsvp-success");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      success.textContent = "✅ RSVP submitted successfully!";
+      form.reset();
+    });
+  </script>
 </body>
 </html>
