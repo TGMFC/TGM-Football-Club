@@ -11,8 +11,8 @@
 
   <style>
     :root {
-      --primary: #000;   /* Black */
-      --accent: #FFD700; /* Yellow (Gold) */
+      --primary: #000;
+      --accent: #FFD700;
       --light: #f9f9f9;
       --text: #333;
     }
@@ -24,7 +24,6 @@
       margin: 0;
     }
 
-    /* HEADER */
     .app-header {
       background: var(--primary);
       color: var(--accent);
@@ -40,7 +39,6 @@
       color: #fff;
     }
 
-    /* TABS */
     .tabs {
       display: flex;
       justify-content: center;
@@ -63,7 +61,6 @@
       background: #444;
     }
 
-    /* CONTENT BOXES */
     .tab-content {
       padding: 20px;
       background: #fff;
@@ -77,7 +74,6 @@
       display: block;
     }
 
-    /* FIXTURE CARDS */
     .fixture {
       border: 1px solid #ddd;
       border-radius: 6px;
@@ -95,7 +91,6 @@
       font-size: 1rem;
     }
 
-    /* RSVP FORM */
     #rsvp-form {
       display: flex;
       flex-direction: column;
@@ -125,7 +120,6 @@
       font-weight: bold;
     }
 
-    /* FOOTER */
     .app-footer {
       text-align: center;
       padding: 15px;
@@ -150,68 +144,89 @@
       <button class="tab" data-tab="rsvp">RSVP</button>
     </div>
 
-    <!-- FIXTURES TAB -->
     <div id="fixtures" class="tab-content active">
       <h2>Fixtures</h2>
-
       <div class="fixture">
         <div class="fixture-header">Tue, 19 Aug</div>
         <div class="fixture-body">Edenvale vs Eastside United – 18:30</div>
       </div>
-
       <div class="fixture">
         <div class="fixture-header">Sun, 24 Aug</div>
         <div class="fixture-body">Alberton vs Eastside United – 08:30</div>
       </div>
-
       <div class="fixture">
         <div class="fixture-header">Sun, 14 Sep</div>
         <div class="fixture-body">Eastside United vs Bonaero – 08:30</div>
       </div>
-
       <div class="fixture">
         <div class="fixture-header">Sun, 21 Sep</div>
         <div class="fixture-body">Olympia vs Eastside United – 08:30</div>
       </div>
-
       <div class="fixture">
         <div class="fixture-header">Wed, 24 Sep</div>
         <div class="fixture-body">Eastside United vs Springs Premier F.C. – 08:30</div>
       </div>
-
       <div class="fixture">
         <div class="fixture-header">Sun, 28 Sep</div>
         <div class="fixture-body">Old Bens vs Eastside United – 08:30</div>
       </div>
     </div>
 
-    <!-- NEWS TAB -->
-<div id="news" class="tab-content">
-  <h2>News</h2>
-  <img src="assets/tgmpic.png" alt="TGM FC News" style="max-width:100%; border-radius:8px; margin-bottom:15px;"/>
+    <div id="news" class="tab-content">
+      <h2>News</h2>
+      <img src="assets/tgmpic.png" alt="TGM FC News" style="max-width:100%; border-radius:8px; margin-bottom:15px;"/>
+      <p>We came. We saw. And we’re going again. 🇸🇪⚽️</p>
+      <p>After an unforgettable Gothia Cup experience, we’re stepping it up in 2026 — and this time, we’re taking two teams to Sweden:</p>
+      <ul>
+        <li>🔹 U14s</li>
+        <li>🔹 U16s</li>
+      </ul>
+      <p>Ready to be part of something special?</p>
+      <h3>Join us for the first round of trials:</h3>
+      <p>
+        📅 <strong>Date:</strong> 31 August<br/>
+        🕥 <strong>U14s:</strong> 10:30 – 12:00<br/>
+        🕛 <strong>U16s:</strong> 12:00 – 13:30<br/>
+        📍 <strong>Venue:</strong> Pinnacle College Rynfield
+      </p>
+      <p>
+        This is an incredible opportunity for players who’ve already tasted Gothia – and for those dreaming of it for the first time. Trials will run over the next few weeks starting the 31st of August, so book your place now and start your journey.
+      </p>
+      <p><strong>DM to register or contact Coach Shane on 0764036527.</strong></p>
+      <p><em>Let’s fly that 🇿🇦 flag high again in 2026!</em></p>
+    </div>
 
-  <p>We came. We saw. And we’re going again. 🇸🇪⚽️</p>
-  <p>After an unforgettable Gothia Cup experience, we’re stepping it up in 2026 — and this time, we’re taking two teams to Sweden:</p>
-  <ul>
-    <li>🔹 U14s</li>
-    <li>🔹 U16s</li>
-  </ul>
-  <p>Ready to be part of something special?</p>
+    <div id="rsvp" class="tab-content">
+      <h2>RSVP</h2>
+      <form id="rsvp-form">
+        <input type="text" placeholder="Player Name" required />
+        <select required>
+          <option value="">Select Age Group</option>
+          <option value="U14">U14</option>
+          <option value="U16">U16</option>
+        </select>
+        <button type="submit">Submit RSVP</button>
+        <div id="rsvp-success" style="display:none;">RSVP submitted successfully!</div>
+      </form>
+    </div>
+  </div>
 
-  <h3>Join us for the first round of trials:</h3>
-  <p>
-    📅 <strong>Date:</strong> 31 August<br/>
-    🕥 <strong>U14s:</strong> 10:30 – 12:00<br/>
-    🕛 <strong>U16s:</strong> 12:00 – 13:30<br/>
-    📍 <strong>Venue:</strong> Pinnacle College Rynfield
-  </p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabs = document.querySelectorAll(".tab");
+      const contents = document.querySelectorAll(".tab-content");
 
-  <p>
-    This is an incredible opportunity for players who’ve already tasted Gothia – and for those dreaming of it for the first time. Trials will run over the next few weeks starting the 31st of August, so book your place now and start your journey.
-  </p>
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
 
-  <p><strong>DM to register or contact Coach Shane on 0764036527.</strong></p>
-  <p><em>Let’s fly that 🇿🇦 flag high again in 2026!</em></p>
-</div>
-
-
+          contents.forEach(content => content.classList.remove("active"));
+          const targetId = tab.getAttribute("data-tab");
+          document.getElementById(targetId).classList.add("active");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
