@@ -1,75 +1,86 @@
-:root {
-  --primary: #000;
-  --accent: #FFD700;
-  --light: #f9f9f9;
-  --text: #333;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--light);
-  color: var(--text);
-  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-/* HEADER */
-.app-header {
-  background: var(--primary);
-  color: var(--accent);
-  padding: 20px;
+/* Header */
+header {
   text-align: center;
+  padding: 20px;
+  background-color: #004080;
+  color: white;
 }
-.logo {
-  height: 60px;
+
+header img {
+  max-width: 120px;
   margin-bottom: 10px;
 }
-.tagline {
-  font-size: 1rem;
-  color: #fff;
+
+h1 {
+  font-size: 2rem;
 }
 
-/* TABS */
+/* Tabs */
 .tabs {
   display: flex;
   justify-content: center;
-  background: #222;
-}
-.tab {
-  padding: 12px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  border: none;
-  background: transparent;
-  color: #fff;
-  transition: 0.3s;
-}
-.tab.active {
-  background: var(--accent);
-  color: #000;
-}
-.tab:hover {
-  background: #444;
+  margin: 20px 0;
 }
 
-/* CONTENT BOXES */
-.tab-content {
-  padding: 20px;
-  background: #fff;
-  margin: 15px auto;
-  max-width: 800px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  display: none;
+.tab {
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s;
 }
+
+.tab.active {
+  background-color: #004080;
+  color: white;
+}
+
+/* Tab content */
+.tab-content {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
 .tab-content.active {
   display: block;
 }
 
-/* FOOTER */
-.app-footer {
+/* Footer */
+footer {
   text-align: center;
-  padding: 15px;
+  margin-top: 40px;
   font-size: 0.9rem;
-  background: #111;
-  color: #bbb;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab {
+    margin-bottom: 10px;
+    width: 80%;
+    text-align: center;
+  }
 }
