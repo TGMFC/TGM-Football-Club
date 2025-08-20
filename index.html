@@ -186,55 +186,31 @@
     </div>
 
     <!-- NEWS TAB -->
-    <div id="news" class="tab-content">
-      <h2>News</h2>
-      <p>No updates yet. Stay tuned!</p>
-    </div>
+<div id="news" class="tab-content">
+  <h2>News</h2>
+  <img src="assets/tgmpic.jpg" alt="TGM FC News" style="max-width:100%; border-radius:8px; margin-bottom:15px;"/>
 
-    <!-- RSVP TAB -->
-    <div id="rsvp" class="tab-content">
-      <h2>RSVP</h2>
-      <form id="rsvp-form">
-        <input type="text" placeholder="Your Name" required />
-        <select required>
-          <option value="">Select Fixture</option>
-          <option value="edenvale">Edenvale vs Eastside United</option>
-          <option value="alberton">Alberton vs Eastside United</option>
-          <option value="bonaero">Eastside United vs Bonaero</option>
-        </select>
-        <button type="submit">Submit RSVP</button>
-      </form>
-      <div id="rsvp-success"></div>
-    </div>
+  <p>We came. We saw. And we’re going again. 🇸🇪⚽️</p>
+  <p>After an unforgettable Gothia Cup experience, we’re stepping it up in 2026 — and this time, we’re taking two teams to Sweden:</p>
+  <ul>
+    <li>🔹 U14s</li>
+    <li>🔹 U16s</li>
+  </ul>
+  <p>Ready to be part of something special?</p>
 
-    <footer class="app-footer">
-      <p>© 2025 Total Game Mastery FC | #VoiceOfTheGame</p>
-    </footer>
-  </div>
+  <h3>Join us for the first round of trials:</h3>
+  <p>
+    📅 <strong>Date:</strong> 31 August<br/>
+    🕥 <strong>U14s:</strong> 10:30 – 12:00<br/>
+    🕛 <strong>U16s:</strong> 12:00 – 13:30<br/>
+    📍 <strong>Venue:</strong> Pinnacle College Rynfield
+  </p>
 
-  <script>
-    // Tab switching
-    const tabs = document.querySelectorAll(".tab");
-    const contents = document.querySelectorAll(".tab-content");
+  <p>
+    This is an incredible opportunity for players who’ve already tasted Gothia – and for those dreaming of it for the first time. Trials will run over the next few weeks starting the 31st of August, so book your place now and start your journey.
+  </p>
 
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
+  <p><strong>DM to register or contact Coach Shane on 0764036527.</strong></p>
+  <p><em>Let’s fly that 🇿🇦 flag high again in 2026!</em></p>
+</div>
 
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.add("active");
-      });
-    });
-
-    // RSVP form
-    const form = document.getElementById("rsvp-form");
-    const success = document.getElementById("rsvp-success");
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      success.textContent = "✅ RSVP submitted successfully!";
-      form.reset();
-    });
-  </script>
-</body>
-</html>
