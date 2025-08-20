@@ -1,13 +1,10 @@
 {
-  "name": "TGM FC",
+  "name": "Total Game Mastery FC",
   "short_name": "TGM FC",
-  "description": "The Talking Game Masters Football Club - Fixtures & RSVPs",
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#FFD700",
-  "orientation": "any",
- {
   "icons": [
     {
       "src": "assets/img/logo-192.png",
