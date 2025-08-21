@@ -248,6 +248,9 @@
       margin-bottom: 15px;
       font-size: 40px;
       color: #555;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
     }
     
     .player-name {
@@ -549,7 +552,7 @@
           🕛 U16s: 12:00 – 13:30<br>
           📍 Venue: Pinnacle College Rynfield</p>
           
-          <p>This is an incredible opportunity for players who've already tasted Gothia – and for those dreaming of it for the first time. Trials will run over the next few weeks starting the 31st of August, so book your place now and start your journey.</p>
+          <p>This is an incredible opportunity for players who've already tasted Gothia — and for those dreaming of it for the first time. Trials will run over the next few weeks starting the 31st of August, so book your place now and start your journey.</p>
           
           <p>DM to register or contact Coach Shane on 0764036527.<br>
           Let's fly that 🇿🇦 flag high again in 2026</p>
@@ -563,7 +566,7 @@
       
       <div class="players-grid">
         <div class="player-card">
-          <div class="player-image">1</div>
+          <div class="player-image" id="player-1"></div>
           <div class="player-name">Meaad Saley</div>
           <div class="player-position">Goalkeeper</div>
           <div class="player-stats">
@@ -579,7 +582,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image">4</div>
+          <div class="player-image" id="player-4"></div>
           <div class="player-name">Russell Wells</div>
           <div class="player-position">Defender</div>
           <div class="player-stats">
@@ -595,7 +598,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image">6</div>
+          <div class="player-image" id="player-6"></div>
           <div class="player-name">Jaydan Beukes</div>
           <div class="player-position">Midfielder</div>
           <div class="player-stats">
@@ -611,7 +614,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image">9</div>
+          <div class="player-image" id="player-9"></div>
           <div class="player-name">Callem Sternberg</div>
           <div class="player-position">Forward</div>
           <div class="player-stats">
@@ -627,7 +630,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image">10</div>
+          <div class="player-image" id="player-10"></div>
           <div class="player-name">Thomas Müller</div>
           <div class="player-position">Midfielder</div>
           <div class="player-stats">
@@ -643,7 +646,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image">14</div>
+          <div class="player-image" id="player-14"></div>
           <div class="player-name">Marco Silva</div>
           <div class="player-position">Midfielder</div>
           <div class="player-stats">
@@ -747,10 +750,31 @@
       // Scroll to success message
       document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
     });
+    
+    // Function to set player images
+    function setPlayerImages() {
+      // Player image data - replace these with actual image paths
+      const playerImages = {
+        1: 'https://via.placeholder.com/100x100/FFD700/000000?text=1',
+        4: 'https://via.placeholder.com/100x100/FFD700/000000?text=4',
+        6: 'https://via.placeholder.com/100x100/FFD700/000000?text=6',
+        9: 'https://via.placeholder.com/100x100/FFD700/000000?text=9',
+        10: 'https://via.placeholder.com/100x100/FFD700/000000?text=10',
+        14: 'https://via.placeholder.com/100x100/FFD700/000000?text=14'
+      };
+      
+      // Apply images to player elements
+      for (const [playerNumber, imageUrl] of Object.entries(playerImages)) {
+        const playerElement = document.getElementById(`player-${playerNumber}`);
+        if (playerElement) {
+          playerElement.style.backgroundImage = `url('${imageUrl}')`;
+          playerElement.innerHTML = ''; // Remove the number text
+        }
+      }
+    }
+    
+    // Call the function when the page loads
+    window.addEventListener('DOMContentLoaded', setPlayerImages);
   </script>
 </body>
 </html>
-
-
-
-
