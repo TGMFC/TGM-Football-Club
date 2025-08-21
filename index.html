@@ -392,6 +392,68 @@
       text-align: center;
     }
     
+    .result-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    
+    .win {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    
+    .loss {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    
+    .draw {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+    
+    .upcoming {
+      background-color: #e2e3e5;
+      color: #383d41;
+    }
+    
+    .season-summary {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .stat-box {
+      text-align: center;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
     @media (max-width: 768px) {
       .tabs {
         flex-wrap: wrap;
@@ -425,6 +487,10 @@
       .fixture-date, .fixture-time {
         min-width: auto;
       }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -441,7 +507,7 @@
 
   <div class="tabs">
     <button class="tab active" onclick="switchTab('home')">Home</button>
-    <button class="tab" onclick="switchTab('fixtures')">Fixtures</button>
+    <button class="tab" onclick="switchTab('fixtures')">Fixtures & Results</button>
     <button class="tab" onclick="switchTab('news')">News</button>
     <button class="tab" onclick="switchTab('players')">Players</button>
     <button class="tab" onclick="switchTab('contact')">Contact</button>
@@ -479,53 +545,173 @@
 
     <!-- Fixtures Tab -->
     <div id="fixtures" class="tab-content">
-      <h2>Eastside United Fixtures – August & September 2025</h2>
+      <h2>Eastside United Fixtures & Results 2025</h2>
       
+      <div class="season-summary">
+        <h3>Season Summary</h3>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number">17</div>
+            <div class="stat-label">Played</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Wins</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">10</div>
+            <div class="stat-label">Losses</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Draws</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">44</div>
+            <div class="stat-label">Goals For</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">60</div>
+            <div class="stat-label">Goals Against</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3>Match Results</h3>
       <ul class="fixture-list">
         <li>
-          <span class="fixture-date">Tue, 19 Aug</span>
-          <span class="fixture-match">Edenvale vs Eastside United</span>
-          <span class="fixture-time">18:30</span>
+          <span class="fixture-date">Sun, 06 Apr 2025</span>
+          <span class="fixture-match">Eastside United 7 vs 1 Benoni Northerns</span>
+          <span class="fixture-time"><span class="result-badge win">Win</span></span>
         </li>
         
-        <div class="divider">⸻</div>
+        <li>
+          <span class="fixture-date">Sun, 13 Apr 2025</span>
+          <span class="fixture-match">TFI 5 vs 0 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
         
         <li>
-          <span class="fixture-date">Sun, 24 Aug</span>
+          <span class="fixture-date">Sun, 27 Apr 2025</span>
+          <span class="fixture-match">Eastside United 6 vs 1 Edenvale</span>
+          <span class="fixture-time"><span class="result-badge win">Win</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Thu, 01 May 2025</span>
+          <span class="fixture-match">Mercurial Stars 2 vs 3 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge win">Win</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 04 May 2025</span>
+          <span class="fixture-match">Eastside United 1 vs 4 Highlands Park</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 11 May 2025</span>
+          <span class="fixture-match">PMFC 8 vs 3 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 18 May 2025</span>
+          <span class="fixture-match">Eastside United 5 vs 1 Alberton</span>
+          <span class="fixture-time"><span class="result-badge win">Win</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 25 May 2025</span>
+          <span class="fixture-match">Bonaero 5 vs 0 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 08 Jun 2025</span>
+          <span class="fixture-match">Eastside United 2 vs 2 Olympia</span>
+          <span class="fixture-time"><span class="result-badge draw">Draw</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 15 Jun 2025</span>
+          <span class="fixture-match">Springs Premier F.C. 2 vs 5 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge win">Win</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 22 Jun 2025</span>
+          <span class="fixture-match">Eastside United 8 vs 1 Old Bens</span>
+          <span class="fixture-time"><span class="result-badge win">Win</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 29 Jun 2025</span>
+          <span class="fixture-match">Benoni Northerns 3 vs 0 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 13 Jul 2025</span>
+          <span class="fixture-match">Eastside United 1 vs 1 TFI</span>
+          <span class="fixture-time"><span class="result-badge draw">Draw</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 20 Jul 2025</span>
+          <span class="fixture-match">Edenvale 5 vs 2 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 27 Jul 2025</span>
+          <span class="fixture-match">Eastside United 3 vs 8 Mercurial Stars</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 10 Aug 2025</span>
+          <span class="fixture-match">Highlands Park 10 vs 1 Eastside United</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+        
+        <li>
+          <span class="fixture-date">Sun, 17 Aug 2025</span>
+          <span class="fixture-match">Eastside United 0 vs 2 PMFC</span>
+          <span class="fixture-time"><span class="result-badge loss">Loss</span></span>
+        </li>
+      </ul>
+      
+      <h3>Upcoming Fixtures</h3>
+      <ul class="fixture-list">
+        <li>
+          <span class="fixture-date">Sun, 24 Aug 2025</span>
           <span class="fixture-match">Alberton vs Eastside United</span>
-          <span class="fixture-time">08:30</span>
+          <span class="fixture-time"><span class="result-badge upcoming">08:30</span></span>
         </li>
         
-        <div class="divider">⸻</div>
-        
         <li>
-          <span class="fixture-date">Sun, 14 Sep</span>
+          <span class="fixture-date">Sun, 14 Sep 2025</span>
           <span class="fixture-match">Eastside United vs Bonaero</span>
-          <span class="fixture-time">08:30</span>
+          <span class="fixture-time"><span class="result-badge upcoming">08:30</span></span>
         </li>
         
-        <div class="divider">⸻</div>
-        
         <li>
-          <span class="fixture-date">Sun, 21 Sep</span>
+          <span class="fixture-date">Sun, 21 Sep 2025</span>
           <span class="fixture-match">Olympia vs Eastside United</span>
-          <span class="fixture-time">08:30</span>
+          <span class="fixture-time"><span class="result-badge upcoming">08:30</span></span>
         </li>
         
-        <div class="divider">⸻</div>
-        
         <li>
-          <span class="fixture-date">Wed, 24 Sep</span>
+          <span class="fixture-date">Wed, 24 Sep 2025</span>
           <span class="fixture-match">Eastside United vs Springs Premier F.C.</span>
-          <span class="fixture-time">08:30</span>
+          <span class="fixture-time"><span class="result-badge upcoming">08:30</span></span>
         </li>
         
-        <div class="divider">⸻</div>
-        
         <li>
-          <span class="fixture-date">Sun, 28 Sep</span>
+          <span class="fixture-date">Sun, 28 Sep 2025</span>
           <span class="fixture-match">Old Bens vs Eastside United</span>
-          <span class="fixture-time">08:30</span>
+          <span class="fixture-time"><span class="result-badge upcoming">08:30</span></span>
         </li>
       </ul>
     </div>
@@ -753,7 +939,7 @@
     
     // Function to set player images
     function setPlayerImages() {
-     // Player image data - using your actual image paths
+      // Player image data - using your actual image paths
       const playerImages = {
         1: 'players/meaad-saley.png',
         4: 'players/russell-wells.png',
@@ -778,5 +964,3 @@
   </script>
 </body>
 </html>
-
-
