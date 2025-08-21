@@ -753,14 +753,14 @@
     
     // Function to set player images
     function setPlayerImages() {
-      // Player image data - replace these with actual image paths
+     // Player image data - using your actual image paths
       const playerImages = {
-        1: 'https://via.placeholder.com/100x100/FFD700/000000?text=1',
-        4: 'https://via.placeholder.com/100x100/FFD700/000000?text=4',
-        6: 'https://via.placeholder.com/100x100/FFD700/000000?text=6',
-        9: 'https://via.placeholder.com/100x100/FFD700/000000?text=9',
-        10: 'https://via.placeholder.com/100x100/FFD700/000000?text=10',
-        14: 'https://via.placeholder.com/100x100/FFD700/000000?text=14'
+        1: 'players/meaad-saley.png',
+        4: 'players/russell-wells.png',
+        6: 'players/jaydan-beukes.png',
+        9: 'players/callem-sternberg.png',
+        10: 'https://via.placeholder.com/100x100/FFD700/000000?text=10', // Keep placeholder for players without images
+        14: 'https://via.placeholder.com/100x100/FFD700/000000?text=14'  // Keep placeholder for players without images
       };
       
       // Apply images to player elements
@@ -775,6 +775,13 @@
     
     // Call the function when the page loads
     window.addEventListener('DOMContentLoaded', setPlayerImages);
+        }
+      }
+    }
+    
+    // Call the function when the page loads
+    window.addEventListener('DOMContentLoaded', setPlayerImages);
   </script>
 </body>
 </html>
+
