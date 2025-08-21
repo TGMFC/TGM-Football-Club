@@ -492,6 +492,28 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366; /* WhatsApp green */
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+  
   </style>
 </head>
 <body>
@@ -980,6 +1002,7 @@
   </script>
 </body>
 </html>
+
 
 
 
