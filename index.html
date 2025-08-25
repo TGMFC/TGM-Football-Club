@@ -532,6 +532,7 @@
     <button class="tab" onclick="switchTab('fixtures')">Fixtures & Results</button>
     <button class="tab" onclick="switchTab('news')">News</button>
     <button class="tab" onclick="switchTab('players')">Players</button>
+    <button class="tab" onclick="switchTab('coaches')">Meet the Coaches</button>
     <button class="tab" onclick="switchTab('contact')">Contact</button>
   </div>
 
@@ -877,6 +878,33 @@
       </div>
     </div>
 
+<!-- Coaches Tab -->
+<div id="coaches" class="tab-content">
+  <h2>Meet the Coaches</h2>
+  <p>Our coaching staff is dedicated to building strong players and strong people. Tap a coach to learn more.</p>
+
+  <div class="players-grid">
+    <div class="player-card" onclick="openCoachModal('shane')">
+      <div class="player-image" style="background-image: url('assets/img/coach-shane.jpg');"></div>
+      <div class="player-name">Shane Campbell</div>
+      <div class="player-position">Head Coach & Owner</div>
+    </div>
+
+    <div class="player-card" onclick="openCoachModal('dino')">
+      <div class="player-image" style="background-image: url('assets/img/coach-dino.jpg');"></div>
+      <div class="player-name">Dino</div>
+      <div class="player-position">Fitness & Conditioning Coach</div>
+    </div>
+
+    <div class="player-card" onclick="openCoachModal('jarryd')">
+      <div class="player-image" style="background-image: url('assets/img/coach-jarryd.jpg');"></div>
+      <div class="player-name">Jarryd</div>
+      <div class="player-position">Player Development Coach</div>
+    </div>
+  </div>
+</div>
+
+    
     <!-- Contact Tab -->
     <div id="contact" class="tab-content">
       <h2>Contact Us</h2>
@@ -1008,6 +1036,7 @@
   </script>
 </body>
 </html>
+
 
 
 
