@@ -84,3 +84,35 @@ footer {
     text-align: center;
   }
 }
+
+/* ===== Meet the Coaches Section ===== */
+.coaches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.coach {
+  text-align: center;
+  max-width: 200px;
+}
+
+.coach img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* makes the image round */
+  object-fit: cover;
+  border: 3px solid #333; /* optional border */
+}
+
+.coach h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.coach p {
+  font-size: 0.9rem;
+  color: #555;
+}
