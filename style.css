@@ -152,3 +152,12 @@ footer {
 .gallery-item:hover {
     transform: scale(1.05);
 }
+
+/* ====================
+   Gallery Tab Styles
+   ==================== */
+.gallery-container { ... }
+.gallery-item { ... }
+.gallery-item img { ... }
+.gallery-item:hover img { ... }
+.gallery-item:hover { ... }
