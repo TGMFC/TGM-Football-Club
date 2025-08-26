@@ -162,3 +162,22 @@ footer {
 .gallery-item:hover img { ... }
 .gallery-item:hover { ... }
 
+/* ===== Contact Page Images ===== */
+#contact .contact-item img {
+    width: 150px;       /* Sets a nice uniform size */
+    height: 150px;      /* Keeps them square for profile pics */
+    object-fit: cover;  /* Crops without stretching */
+    border-radius: 50%; /* Optional: makes images circular */
+    border: 2px solid #004080; /* Optional: matches your theme */
+    display: block;
+    margin: 0 auto;     /* Centers images in their container */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    #contact .contact-item img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
