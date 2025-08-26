@@ -25,18 +25,7 @@ function loadFixtures() {
   });
 }
 
-function switchTab(tabName) {
-  const tabs = document.querySelectorAll('.tab-content');
-  tabs.forEach(tab => tab.style.display = 'none');
-
-  const buttons = document.querySelectorAll('.tab-buttons button');
-  buttons.forEach(btn => btn.classList.remove('active'));
-
-  document.getElementById(tabName).style.display = 'block';
-  document.querySelector(`.tab-buttons button[onclick="switchTab('${tabName}')"]`).classList.add('active');
-}
-
-
 // Run once page is loaded
 document.addEventListener("DOMContentLoaded", loadFixtures);
+
 
