@@ -3,13 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Total Game Mastery FC</title>
+  <title>TGM FC - Youth Football Coaching in Benoni, South Africa</title>
+  <meta name="description" content="Join TGM FC for expert youth football coaching in Benoni, South Africa. Est. 2024, view our U13 squad, 2025 fixtures, and Gothia Cup 2026 trials.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/png" href="assets/img/logo-192.png" />
   <link rel="apple-touch-icon" href="assets/img/logo-192.png" />
   <link rel="stylesheet" href="style.css">
   
+  <!-- Schema Markup for Sports Team -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsTeam",
+    "name": "Total Game Mastery FC",
+    "sport": "Soccer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Benoni, South Africa",
+      "streetAddress": "Pinnacle College Rynfield"
+    },
+    "member": [
+      {"@type": "Person", "name": "Meaad Saley", "jobTitle": "Goalkeeper"},
+      {"@type": "Person", "name": "Shane Campbell", "jobTitle": "Head Coach"}
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --primary: #000;
@@ -93,6 +113,7 @@
       color: #fff;
       transition: 0.3s;
       outline: none;
+      text-decoration: none; /* Added for <a> tags */
     }
     
     .tab.active {
@@ -493,34 +514,58 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366; /* WhatsApp green */
-  color: white;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: transform 0.3s ease;
-}
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366; /* WhatsApp green */
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-  
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Added for Gallery */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
   <header class="app-header">
     <div class="logo-container">
-      <img class="logo" src="assets/img/logo-192.png" alt="Total Game Mastery FC Logo">
+      <img class="logo" src="assets/img/logo-192.png" alt="TGM FC Logo - Youth Football Club Benoni">
       <div class="header-text">
         <h1>Total Game Mastery FC</h1>
         <p class="tagline">Excellence on and off the pitch</p>
@@ -529,23 +574,22 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" onclick="switchTab('home')">Home</button>
-    <button class="tab" onclick="switchTab('fixtures')">Fixtures & Results</button>
-    <button class="tab" onclick="switchTab('news')">News</button>
-    <button class="tab" onclick="switchTab('players')">Players</button>
-    <button class="tab" onclick="switchTab('coaches')">Meet the Coaches</button>
-    <button class="tab" onclick="switchTab('contact')">Contact</button>
-    <button class="tab" onclick="switchTab('teams')">Teams</button>
-    <button class="tab" onclick="switchTab('gallery')">Gallery</button> <!-- New Gallery Tab -->
-</div>
-
+    <a href="#home" class="tab active" onclick="switchTab('home')">Home</a>
+    <a href="#fixtures" class="tab" onclick="switchTab('fixtures')">Fixtures & Results</a>
+    <a href="#news" class="tab" onclick="switchTab('news')">News</a>
+    <a href="#players" class="tab" onclick="switchTab('players')">Players</a>
+    <a href="#coaches" class="tab" onclick="switchTab('coaches')">Meet the Coaches</a>
+    <a href="#contact" class="tab" onclick="switchTab('contact')">Contact</a>
+    <a href="#teams" class="tab" onclick="switchTab('teams')">Teams</a>
+    <a href="#gallery" class="tab" onclick="switchTab('gallery')">Gallery</a>
+  </div>
 
   <div class="container">
     <!-- Home Tab -->
     <div id="home" class="tab-content active">
       <h2>Welcome to TGM FC est 2024</h2>
-    <p><strong><u>TGM's Mission Statement:</u></strong></p>
-<p>"At TGM FC, we take a two-pronged approach: delivering expert, unique football coaching that helps players master their all-round game, on the field and off it, while also providing a football club that players can call home. We strive to be the very best, competing with passion and purpose, while maintaining the ethics and principles that allow every player to grow, learn, and make mistakes along the journey."</p>
+      <p><strong><u>TGM's Mission Statement:</u></strong></p>
+      <p>"At TGM FC, we take a two-pronged approach: delivering expert, unique football coaching that helps players master their all-round game, on the field and off it, while also providing a football club that players can call home. We strive to be the very best, competing with passion and purpose, while maintaining the ethics and principles that allow every player to grow, learn, and make mistakes along the journey." <a href="#players">Meet our U13 squad</a> or <a href="#teams">join our 2026 trials</a>.</p>
 
       <div class="fixture" style="margin-top: 30px;">
         <div class="fixture-header">
@@ -567,6 +611,7 @@
           <p><i class="fas fa-calendar"></i> Sunday, 31 August 2025</p>
           <p><i class="fas fa-clock"></i> 08:30</p>
           <p><i class="fas fa-map-marker-alt"></i> Home Game</p>
+          <p><a href="#fixtures">View all 2025 fixtures</a></p>
         </div>
       </div>
     </div>
@@ -754,22 +799,21 @@
     <div id="news" class="tab-content">
       <h2>Club News</h2>
 
-<div class="news-item">
-  <div class="news-date">Jul 2025</div>
-  <div class="news-content">
-    <h3>TGM FC at the Gothia Cup 2025</h3>
-    <p>Our Under-13 squad proudly represented TGM FC at the Gothia Cup 2025 in Sweden – the world’s largest youth football tournament.</p>
+      <div class="news-item">
+        <div class="news-date">Jul 2025</div>
+        <div class="news-content">
+          <h3>TGM FC at the Gothia Cup 2025</h3>
+          <p>Our Under-13 squad proudly represented TGM FC at the Gothia Cup 2025 in Sweden – the world’s largest youth football tournament. <a href="#players">See the U13 squad</a>.</p>
 
-    <p>Placed in a challenging group alongside teams from Sweden, Norway, and Mexico, our boys were the lowest-seeded team. Despite this, they rose to the occasion, finishing third in their group after securing one draw and losing two matches. Their journey continued into the round of 32, where they were knocked out by a strong Mexican side.</p>
+          <p>Placed in a challenging group alongside teams from Sweden, Norway, and Mexico, our boys were the lowest-seeded team. Despite this, they rose to the occasion, finishing third in their group after securing one draw and losing two matches. Their journey continued into the round of 32, where they were knocked out by a strong Mexican side.</p>
 
-    <p>While results tell part of the story, what truly stood out was their character, fight, and sportsmanship. Every opponent – including our Swedish hosts – praised the boys not only for their skill but also for their conduct both on and off the field. They competed with relentless determination, yet always with respect, embodying the values we strive to instill at TGM FC.</p>
+          <p>While results tell part of the story, what truly stood out was their character, fight, and sportsmanship. Every opponent – including our Swedish hosts – praised the boys not only for their skill but also for their conduct both on and off the field. They competed with relentless determination, yet always with respect, embodying the values we strive to instill at TGM FC.</p>
 
-    <p>This experience was more than just football. It was a powerful lesson in resilience, teamwork, and personal growth. The boys grew closer as a squad and matured as individuals, returning home not only as stronger footballers but as better young men.</p>
+          <p>This experience was more than just football. It was a powerful lesson in resilience, teamwork, and personal growth. The boys grew closer as a squad and matured as individuals, returning home not only as stronger footballers but as better young men.</p>
 
-    <p>The Gothia Cup was a milestone in their development – one that will stay with them for life and serve as a foundation for future success, both on and off the pitch. We are immensely proud of what they achieved, and we are already looking forward to returning next year, stronger and wiser.</p>
-  </div>
-</div>
-
+          <p>The Gothia Cup was a milestone in their development – one that will stay with them for life and serve as a foundation for future success, both on and off the pitch. We are immensely proud of what they achieved, and we are already looking forward to returning next year, stronger and wiser. <a href="#teams">Join our 2026 trials</a>.</p>
+        </div>
+      </div>
       
       <div class="news-item">
         <div class="news-date">Aug 2025</div>
@@ -791,7 +835,7 @@
           
           <p>This is an incredible opportunity for players who've already tasted Gothia — and for those dreaming of it for the first time. Trials will run over the next few weeks starting the 31st of August, so book your place now and start your journey.</p>
           
-          <p>DM to register or contact Coach Shane on 0764036527.<br>
+          <p>DM to register or <a href="#contact">contact Coach Shane</a> on 0764036527.<br>
           Let's fly that 🇿🇦 flag high again in 2026</p>
         </div>
       </div>
@@ -800,10 +844,11 @@
     <!-- Players Tab -->
     <div id="players" class="tab-content">
       <h2>U13 Team Squad</h2>
+      <p>Meet the talented young players of TGM FC's U13 squad, coached by our dedicated staff. <a href="#coaches">View our coaching team</a>.</p>
       
       <div class="players-grid">
         <div class="player-card">
-          <div class="player-image" id="player-1"></div>
+          <div class="player-image" id="player-1" alt="Meaad Saley - TGM FC U13 Goalkeeper"></div>
           <div class="player-name">Meaad Saley</div>
           <div class="player-position">Goalkeeper</div>
           <div class="player-stats">
@@ -819,7 +864,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image" id="player-4"></div>
+          <div class="player-image" id="player-4" alt="Russell Wells - TGM FC U13 Defender"></div>
           <div class="player-name">Russell Wells</div>
           <div class="player-position">Defender</div>
           <div class="player-stats">
@@ -835,7 +880,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image" id="player-6"></div>
+          <div class="player-image" id="player-6" alt="Jaydan Beukes - TGM FC U13 Midfielder"></div>
           <div class="player-name">Jaydan Beukes</div>
           <div class="player-position">Midfielder</div>
           <div class="player-stats">
@@ -851,7 +896,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image" id="player-9"></div>
+          <div class="player-image" id="player-9" alt="Callem Sternberg - TGM FC U13 Forward"></div>
           <div class="player-name">Callem Sternberg</div>
           <div class="player-position">Forward</div>
           <div class="player-stats">
@@ -867,7 +912,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image" id="player-10"></div>
+          <div class="player-image" id="player-10" alt="Aiden Mills - TGM FC U13 Defender"></div>
           <div class="player-name">Aiden Mills</div>
           <div class="player-position">Defender</div>
           <div class="player-stats">
@@ -883,7 +928,7 @@
         </div>
         
         <div class="player-card">
-          <div class="player-image" id="player-14"></div>
+          <div class="player-image" id="player-14" alt="Rearno Smith - TGM FC U13 Midfielder"></div>
           <div class="player-name">Rearno Smith</div>
           <div class="player-position">Midfielder</div>
           <div class="player-stats">
@@ -900,53 +945,50 @@
       </div>
     </div>
 
-<!-- Coaches Tab -->
-<div id="coaches" class="tab-content">
-  <h2>Meet the Coaches</h2>
-  <p>Our coaching staff is dedicated to building strong players and strong people. Tap a coach to learn more.</p>
+    <!-- Coaches Tab -->
+    <div id="coaches" class="tab-content">
+      <h2>Meet the Coaches</h2>
+      <p>Our coaching staff is dedicated to building strong players and strong people. Tap a coach to learn more or <a href="#contact">get in touch</a>.</p>
 
-  <div class="players-grid">
-    <!-- Existing Coaches -->
-    <div class="player-card" onclick="openCoachModal('shane')">
-      <div class="player-image" style="background-image: url('assets/img/coach-shane.png');"></div>
-      <div class="player-name">Shane Campbell</div>
-      <div class="player-position">Head Coach & Owner</div>
+      <div class="players-grid">
+        <div class="player-card" onclick="openCoachModal('shane')">
+          <div class="player-image" style="background-image: url('assets/img/coach-shane.png');" alt="Shane Campbell - TGM FC Head Coach"></div>
+          <div class="player-name">Shane Campbell</div>
+          <div class="player-position">Head Coach & Owner</div>
+        </div>
+
+        <div class="player-card" onclick="openCoachModal('dino')">
+          <div class="player-image" style="background-image: url('assets/img/coach-dino.png');" alt="Dinal Solankee - TGM FC Fitness Coach"></div>
+          <div class="player-name">Dinal Solankee</div>
+          <div class="player-position">Fitness & Conditioning Coach</div>
+        </div>
+
+        <div class="player-card" onclick="openCoachModal('jarryd')">
+          <div class="player-image" style="background-image: url('assets/img/coach-jarryd.png');" alt="Jarryd Buckle - TGM FC Player Development Coach"></div>
+          <div class="player-name">Jarryd Buckle</div>
+          <div class="player-position">Player Development Coach</div>
+        </div>
+
+        <div class="player-card" onclick="openCoachModal('jordan')">
+          <div class="player-image" style="background-image: url('assets/img/coach-jordan.png');" alt="Jordan Green - TGM FC U14 Coach"></div>
+          <div class="player-name">Jordan Green</div>
+          <div class="player-position">U14 Coach</div>
+        </div>
+
+        <div class="player-card" onclick="openCoachModal('zavier')">
+          <div class="player-image" style="background-image: url('assets/img/coach-zavier.png');" alt="Zavier Kupersamy - TGM FC U14 Coach"></div>
+          <div class="player-name">Zavier Kupersamy</div>
+          <div class="player-position">U14 Coach</div>
+        </div>
+
+        <div class="player-card" onclick="openCoachModal('tbc')">
+          <div class="player-image" style="background-image: url('assets/img/coach-tbc.png');" alt="TGM FC Media and Parent Liaison"></div>
+          <div class="player-name">tbc</div>
+          <div class="player-position">Media and Parent Liaison</div>
+        </div>
+      </div>
     </div>
 
-    <div class="player-card" onclick="openCoachModal('dino')">
-      <div class="player-image" style="background-image: url('assets/img/coach-dino.png');"></div>
-      <div class="player-name">Dinal Solankee</div>
-      <div class="player-position">Fitness & Conditioning Coach</div>
-    </div>
-
-    <div class="player-card" onclick="openCoachModal('jarryd')">
-      <div class="player-image" style="background-image: url('assets/img/coach-jarryd.png');"></div>
-      <div class="player-name">Jarryd Buckle</div>
-      <div class="player-position">Player Development Coach</div>
-    </div>
-
-    <!-- New Coaches (Corrected) -->
-    <div class="player-card" onclick="openCoachModal('jordan')">
-      <div class="player-image" style="background-image: url('assets/img/coach-jordan.png');"></div>
-      <div class="player-name">Jordan Green</div>
-      <div class="player-position">U14 Coach</div>
-    </div>
-
-    <div class="player-card" onclick="openCoachModal('zavier')">
-      <div class="player-image" style="background-image: url('assets/img/coach-zavier.png');"></div>
-      <div class="player-name">Zavier Kupersamy</div>
-      <div class="player-position">U14 Coach</div>
-    </div>
-
-    <div class="player-card" onclick="openCoachModal('tbc')">
-      <div class="player-image" style="background-image: url('assets/img/coach-tbc.png');"></div>
-      <div class="player-name">tbc</div>
-      <div class="player-position">Media and Parent Liaison</div>
-    </div>
-  </div> <!-- End of .players-grid -->
-</div> <!-- End of #coaches -->
-
-    
     <!-- Contact Tab -->
     <div id="contact" class="tab-content">
       <h2>Contact Us</h2>
@@ -954,12 +996,12 @@
       <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px;">
         <div style="flex: 1; min-width: 300px;">
           <h3>Get in Touch</h3>
-          <p>We'd love to hear from you! Whether you're interested in trying out for the team, sponsoring the club, or just want to show your support.</p>
+          <p>We'd love to hear from you! Whether you're interested in <a href="#teams">trying out for the team</a>, sponsoring the club, or just want to show your support.</p>
           
           <div style="margin-top: 20px;">
             <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Pinnacle College Rynfield</p>
-            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> 076 403 6527</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> info@totalgamemastery.co.za</p>
+            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> <a href="tel:+27764036527">076 403 6527</a></p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@totalgamemastery.co.za">info@totalgamemastery.co.za</a></p>
           </div>
         </div>
         
@@ -991,12 +1033,11 @@
       </div>
     </div>
 
-    <!-- ✅ Teams Tab (MOVED INSIDE .container and EMBEDDED FORM) -->
+    <!-- Teams Tab -->
     <div id="teams" class="tab-content">
-      <h2>2026</h2>
-      <p>Select your age group below to join TGM FC or complete the form directly on this page.</p>
+      <h2>2026 Trials</h2>
+      <p>Select your age group below to join TGM FC or complete the form directly on this page. <a href="#news">Read about our Gothia Cup 2026 trials</a>.</p>
 
-      <!-- Embedded Google Form -->
       <div style="margin: 20px 0;">
         <iframe 
           src="https://forms.gle/KqnXoaAXe5PVeHat7"
@@ -1035,61 +1076,59 @@
 
       <p>Once submitted, the information will be sent directly to our club database.</p>
     </div>
-    <!-- ✅ End Teams Tab -->
 
-<!-- Gallery Tab - UPDATED -->
+    <!-- Gallery Tab -->
     <div id="gallery" class="tab-content">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="assets/img/IMG_5995.JPG" alt="TGM Match 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/IMG_6001.JPG" alt="TGM Training 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/IMG_6050-min.JPG" alt="TGM Event 1">
-            </div>
-          <div class="gallery-item">
-                <img src="assets/img/IMG_6045-min.JPG" alt="TGM Match 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/IMG_6089-min.JPG" alt="TGM Training 1">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/IMG_6097-min.JPG" alt="TGM Event 1">
-            </div>
-            <!-- Add more images as needed -->
+      <h2>Gallery</h2>
+      <p>Explore moments from our matches, training, and events. <a href="#fixtures">Check our upcoming fixtures</a>.</p>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="assets/img/IMG_5995.JPG" alt="TGM FC Match Action - Youth Football Benoni">
         </div>
+        <div class="gallery-item">
+          <img src="assets/img/IMG_6001.JPG" alt="TGM FC Training Session - Benoni Football Club">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/img/IMG_6050-min.JPG" alt="TGM FC Event - Youth Soccer South Africa">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/img/IMG_6045-min.JPG" alt="TGM FC Match - Eastside United">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/img/IMG_6089-min.JPG" alt="TGM FC Training - U13 Squad">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/img/IMG_6097-min.JPG" alt="TGM FC Team Event - Benoni">
+        </div>
+      </div>
     </div>
-
-    
   </div>
 
-<footer class="footer" style="background-color:#000; color:#fff; text-align:center; padding:20px;">
+  <footer class="footer" style="background-color:#000; color:#fff; text-align:center; padding:20px;">
     <p>© 2025 Total Game Mastery FC. All rights reserved.</p>
+    <p><a href="#home">Home</a> | <a href="#fixtures">Fixtures</a> | <a href="#news">News</a> | <a href="#players">Players</a> | <a href="#coaches">Coaches</a> | <a href="#contact">Contact</a> | <a href="#teams">Trials</a> | <a href="#gallery">Gallery</a></p>
     <p style="margin-top:10px; font-weight:bold;">Proudly Sponsored By:</p>
     <p style="margin-top:5px; line-height:1.6;">
-        KEE Training, Jarryd Buckle Photography, NK Pro Apparel, Northcliff Halaal Butchery, 
-        Mohawk Safety, East Side United, Revive, Volkano Nation, Albert Electrical, Nordic Industries, 
-        Cubeke Group, Aeroplan, Pinnacle College Rynfield, Soltice Mind And Body, Optifin, Delkor Bensure, 
-        Travel Gab, Tracel Councillors, KM Photography, ISTC, Smarty Pants Tutoring
+      KEE Training, Jarryd Buckle Photography, NK Pro Apparel, Northcliff Halaal Butchery, 
+      Mohawk Safety, East Side United, Revive, Volkano Nation, Albert Electrical, Nordic Industries, 
+      Cubeke Group, Aeroplan, Pinnacle College Rynfield, Soltice Mind And Body, Optifin, Delkor Bensure, 
+      Travel Gab, Tracel Councillors, KM Photography, ISTC, Smarty Pants Tutoring
     </p>
-  <div class="social-links">
-    <a href="https://www.instagram.com/totalgamemastery/" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/TotalGameMastery" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="https://www.tiktok.com/@total.game.mastery" target="_blank" aria-label="TikTok">
-      <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-  </div>
-</footer>
+    <div class="social-links">
+      <a href="https://www.instagram.com/totalgamemastery/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/TotalGameMastery" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.tiktok.com/@total.game.mastery" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </footer>
 
   <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/27764036527" 
@@ -1115,26 +1154,31 @@
       
       // Activate the selected tab and content
       document.getElementById(tabName).classList.add('active');
-      event.currentTarget.classList.add('active');
+      const activeTab = document.querySelector(`.tab[href="#${tabName}"]`);
+      if (activeTab) activeTab.classList.add('active');
     }
+
+    // Handle anchor links to prevent default behavior and trigger tab switch
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        const tabName = this.getAttribute('href').substring(1);
+        switchTab(tabName);
+        // Smooth scroll to section
+        document.getElementById(tabName).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
     
     // Handle form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-      // In a real implementation, this would submit to Formspree
-      // For demonstration, we'll just show a success message
       e.preventDefault();
       document.getElementById('successMessage').style.display = 'block';
-      
-      // Reset the form
       this.reset();
-      
-      // Scroll to success message
       document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
     });
     
     // Function to set player images
     function setPlayerImages() {
-      // Player image data - using your actual image paths
       const playerImages = {
         1: 'players/meaad-saley.png',
         4: 'players/russell-wells.png',
@@ -1144,33 +1188,26 @@
         14: 'players/rearno-smith.png',
       };
       
-      // Apply images to player elements
       for (const [playerNumber, imageUrl] of Object.entries(playerImages)) {
         const playerElement = document.getElementById(`player-${playerNumber}`);
         if (playerElement) {
           playerElement.style.backgroundImage = `url('${imageUrl}')`;
-          playerElement.innerHTML = ''; // Remove the number text
+          playerElement.innerHTML = '';
         }
       }
     }
     
     // Call the function when the page loads
     window.addEventListener('DOMContentLoaded', setPlayerImages);
+
+    // Handle initial page load with hash
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        switchTab(hash);
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
