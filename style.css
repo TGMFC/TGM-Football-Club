@@ -134,14 +134,14 @@ footer {
     gap: 20px;
 }
 
-.gallery-item {
-    flex: 1 1 250px;
-    max-width: 250px;   /* was 100px – make this larger so images aren’t squashed */
-    overflow: hidden;
+.gallery-item img {
+    width: 250px;      /* thumbnail width */
+    height: 180px;     /* thumbnail height */
+    object-fit: cover; /* crops instead of stretching */
+    display: block;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
 }
+
 
 .gallery-item img {
     width: 100%;
@@ -182,5 +182,6 @@ footer {
         height: 100px;
     }
 }
+
 
 
