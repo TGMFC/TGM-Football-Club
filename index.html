@@ -113,7 +113,7 @@
       color: #fff;
       transition: 0.3s;
       outline: none;
-      text-decoration: none; /* Added for <a> tags */
+      text-decoration: none;
     }
     
     .tab.active {
@@ -518,7 +518,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #25D366; /* WhatsApp green */
+      background: #25D366;
       color: white;
       width: 55px;
       height: 55px;
@@ -536,7 +536,6 @@
       transform: scale(1.1);
     }
 
-    /* Added for Gallery */
     .gallery-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -558,6 +557,19 @@
     }
     
     .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Added for Seobility Widget */
+    .seo-widget {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .seo-widget a {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .seo-widget a:hover {
       transform: scale(1.05);
     }
   </style>
@@ -1128,6 +1140,11 @@
         <i class="fab fa-youtube"></i>
       </a>
     </div>
+    <div class="seo-widget">
+      <a href="https://www.seobility.net/en/seocheck/check?url=https%3A%2F%2Ftgmfc.github.io%2FTGM-Football-Club%2F">
+        <img src="https://app.seobility.net/widget/widget.png?url=https%3A%2F%2Ftgmfc.github.io%2FTGM-Football-Club%2F" alt="Seobility Score for TGM FC">
+      </a>
+    </div>
   </footer>
 
   <!-- Floating WhatsApp Button -->
@@ -1140,36 +1157,30 @@
   
   <script>
     function switchTab(tabName) {
-      // Hide all tab contents
       const tabContents = document.getElementsByClassName('tab-content');
       for (let i = 0; i < tabContents.length; i++) {
         tabContents[i].classList.remove('active');
       }
       
-      // Deactivate all tabs
       const tabs = document.getElementsByClassName('tab');
       for (let i = 0; i < tabs.length; i++) {
         tabs[i].classList.remove('active');
       }
       
-      // Activate the selected tab and content
       document.getElementById(tabName).classList.add('active');
       const activeTab = document.querySelector(`.tab[href="#${tabName}"]`);
       if (activeTab) activeTab.classList.add('active');
     }
 
-    // Handle anchor links to prevent default behavior and trigger tab switch
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', function(e) {
         e.preventDefault();
         const tabName = this.getAttribute('href').substring(1);
         switchTab(tabName);
-        // Smooth scroll to section
         document.getElementById(tabName).scrollIntoView({ behavior: 'smooth' });
       });
     });
     
-    // Handle form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       document.getElementById('successMessage').style.display = 'block';
@@ -1177,7 +1188,6 @@
       document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
     });
     
-    // Function to set player images
     function setPlayerImages() {
       const playerImages = {
         1: 'players/meaad-saley.png',
@@ -1197,10 +1207,8 @@
       }
     }
     
-    // Call the function when the page loads
     window.addEventListener('DOMContentLoaded', setPlayerImages);
 
-    // Handle initial page load with hash
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.substring(1);
       if (hash) {
