@@ -136,7 +136,7 @@ footer {
 
 .gallery-item {
     flex: 1 1 250px;
-    max-width: 100px;
+    max-width: 250px;   /* was 100px – make this larger so images aren’t squashed */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -145,9 +145,11 @@ footer {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 200px;      /* fixed height for uniform thumbnails */
+    object-fit: cover;  /* crops neatly instead of stretching */
     display: block;
 }
+
 
 .gallery-item:hover {
     transform: scale(1.05);
@@ -180,4 +182,5 @@ footer {
         height: 100px;
     }
 }
+
 
