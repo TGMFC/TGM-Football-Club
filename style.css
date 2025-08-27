@@ -117,39 +117,6 @@ footer {
   color: #555;
 }
 
-#gallery {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-#gallery h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.gallery-item img {
-    width: 250px;      /* thumbnail width */
-    height: 180px;     /* thumbnail height */
-    object-fit: cover; /* crops instead of stretching */
-    display: block;
-    border-radius: 10px;
-}
-
-
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-
-/* ====================
-   Gallery Tab Styles
-   ==================== */
 /* Gallery Tab Styles */
 #gallery {
     padding: 50px 20px;
@@ -197,6 +164,7 @@ footer {
         height: 120px; /* Adjust height for mobile */
     }
 }
+
 /* ===== Contact Page Images ===== */
 #contact .contact-item img {
     width: 150px;       /* Sets a nice uniform size */
@@ -215,7 +183,3 @@ footer {
         height: 100px;
     }
 }
-
-
-
-
