@@ -102,11 +102,13 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      flex-wrap: wrap; /* Allow tabs to wrap on mobile */
+      flex-wrap: wrap; /* Allow tabs to wrap */
+      max-height: 120px; /* Limit total height on mobile */
+      overflow-y: auto; /* Add scroll if needed */
     }
     
     .tab {
-      padding: 12px 20px;
+      padding: 10px 15px; /* Reduced padding */
       cursor: pointer;
       font-weight: bold;
       border: none;
@@ -115,9 +117,10 @@
       transition: 0.3s;
       outline: none;
       text-decoration: none;
-      flex: 1 1 auto; /* Allow tabs to shrink and grow */
-      min-width: 80px; /* Minimum width for readability */
+      flex: 1 1 auto;
+      min-width: 70px; /* Slightly reduced minimum width */
       text-align: center;
+      white-space: nowrap; /* Prevent text wrapping within tabs */
     }
     
     .tab.active {
@@ -541,15 +544,15 @@
 
     @media (max-width: 768px) {
       .tabs {
-        flex-wrap: wrap;
-        padding: 5px 0; /* Reduced padding for mobile */
+        padding: 5px 0;
+        max-height: 100px; /* Reduced max height */
       }
       
       .tab {
-        flex: 1 1 50%; /* Two tabs per row on mobile */
-        min-width: 60px; /* Reduced minimum width */
-        padding: 6px 10px; /* Reduced padding */
-        font-size: 0.8rem; /* Smaller font size */
+        flex: 1 1 50%; /* Two tabs per row */
+        min-width: 60px;
+        padding: 6px 8px; /* Reduced padding */
+        font-size: 0.8rem;
         text-align: center;
       }
       
@@ -587,14 +590,15 @@
 
     @media (max-width: 480px) {
       .tabs {
-        padding: 3px 0; /* Further reduced padding */
+        padding: 3px 0;
+        max-height: 80px; /* Further reduced max height */
       }
       
       .tab {
-        flex: 1 1 100%; /* One tab per row on very small screens */
-        min-width: 50px; /* Further reduced minimum width */
-        padding: 4px 8px; /* Further reduced padding */
-        font-size: 0.7rem; /* Smaller font size */
+        flex: 1 1 100%; /* One tab per row */
+        min-width: 50px;
+        padding: 4px 6px; /* Further reduced padding */
+        font-size: 0.7rem;
       }
       
       .container {
@@ -1186,24 +1190,8 @@
           playerElement.innerHTML = '';
         }
       }
-    }
-    
-    // Initialize player images and handle initial hash
-    window.addEventListener('DOMContentLoaded', () => {
-      setPlayerImages();
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        switchTab(hash);
-      }
-    });
+   }
 
-    // Handle hash changes (e.g., browser back/forward)
-    window.addEventListener('hashchange', () => {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        switchTab(hash);
-      }
-    });
-  </script>
-</body>
-</html>
+  // Call the function when the page loads
+  window.onload = setPlayerImages;
+</script>
