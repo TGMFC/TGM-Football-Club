@@ -169,6 +169,31 @@
       margin: 0 auto;
       padding: 20px;
       padding-top: 80px;
+      /* Watermark styling */
+      background-image: url('tgm-pic.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50%; /* Adjust size to fit content */
+      background-attachment: fixed;
+      background-color: var(--light);
+      opacity: 1; /* Ensure content is fully opaque */
+      position: relative;
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: inherit;
+      background-repeat: inherit;
+      background-position: inherit;
+      background-size: inherit;
+      background-attachment: inherit;
+      opacity: 0.1; /* Low opacity for watermark effect */
+      z-index: -1; /* Place behind content */
     }
     
     .tab-content {
@@ -643,6 +668,7 @@
       
       .container {
         padding-top: 60px;
+        background-size: 70%; /* Slightly larger watermark on smaller screens */
       }
       
       .fixture-body {
@@ -692,6 +718,7 @@
       
       .container {
         padding-top: 50px;
+        background-size: 80%; /* Further adjust watermark size for small screens */
       }
 
       .search-container input {
