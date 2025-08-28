@@ -95,6 +95,38 @@
       margin-top: 5px;
     }
 
+    .search-container {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 100%;
+      max-width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    .search-container button {
+      padding: 10px 15px;
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .search-container button:hover {
+      background: #e6d300;
+    }
+
     .tabs {
       display: flex;
       justify-content: center;
@@ -102,13 +134,13 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      flex-wrap: wrap; /* Allow tabs to wrap */
-      max-height: 120px; /* Limit total height on mobile */
-      overflow-y: auto; /* Add scroll if needed */
+      flex-wrap: wrap;
+      max-height: 120px;
+      overflow-y: auto;
     }
     
     .tab {
-      padding: 10px 15px; /* Reduced padding */
+      padding: 10px 15px;
       cursor: pointer;
       font-weight: bold;
       border: none;
@@ -118,9 +150,9 @@
       outline: none;
       text-decoration: none;
       flex: 1 1 auto;
-      min-width: 70px; /* Slightly reduced minimum width */
+      min-width: 70px;
       text-align: center;
-      white-space: nowrap; /* Prevent text wrapping within tabs */
+      white-space: nowrap;
     }
     
     .tab.active {
@@ -136,7 +168,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      padding-top: 80px; /* Adjusted to ensure content clears sticky tabs */
+      padding-top: 80px;
     }
     
     .tab-content {
@@ -163,6 +195,59 @@
       border-bottom: 2px solid var(--accent);
       padding-bottom: 10px;
       margin-bottom: 20px;
+    }
+
+    .search-results {
+      padding: 25px;
+      background: #fff;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    .search-results.active {
+      display: block;
+    }
+
+    .search-results h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-result-item {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    .search-result-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .search-result-item p {
+      margin: 5px 0;
+      color: #777;
+    }
+
+    .search-result-item a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .search-result-item a:hover {
+      text-decoration: underline;
     }
 
     .fixture {
@@ -545,19 +630,19 @@
     @media (max-width: 768px) {
       .tabs {
         padding: 5px 0;
-        max-height: 100px; /* Reduced max height */
+        max-height: 100px;
       }
       
       .tab {
-        flex: 1 1 50%; /* Two tabs per row */
+        flex: 1 1 50%;
         min-width: 60px;
-        padding: 6px 8px; /* Reduced padding */
+        padding: 6px 8px;
         font-size: 0.8rem;
         text-align: center;
       }
       
       .container {
-        padding-top: 60px; /* Adjusted for reduced tab height */
+        padding-top: 60px;
       }
       
       .fixture-body {
@@ -586,23 +671,31 @@
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .search-container input {
+        max-width: 200px;
+      }
     }
 
     @media (max-width: 480px) {
       .tabs {
         padding: 3px 0;
-        max-height: 80px; /* Further reduced max height */
+        max-height: 80px;
       }
       
       .tab {
-        flex: 1 1 100%; /* One tab per row */
+        flex: 1 1 100%;
         min-width: 50px;
-        padding: 4px 6px; /* Further reduced padding */
+        padding: 4px 6px;
         font-size: 0.7rem;
       }
       
       .container {
-        padding-top: 50px; /* Adjusted for reduced tab height */
+        padding-top: 50px;
+      }
+
+      .search-container input {
+        max-width: 150px;
       }
     }
   </style>
@@ -615,6 +708,10 @@
         <h1>Total Game Mastery FC</h1>
         <p class="tagline">Excellence on and off the pitch</p>
       </div>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search fixtures, players, news..." aria-label="Search TGM FC content">
+      <button onclick="performSearch()">Search</button>
     </div>
   </header>
 
@@ -630,6 +727,12 @@
   </div>
 
   <div class="container">
+    <!-- Search Results -->
+    <div id="search-results" class="search-results">
+      <h2>Search Results</h2>
+      <div id="search-results-content"></div>
+    </div>
+
     <!-- Home Tab -->
     <div id="home" class="tab-content active">
       <h2>Welcome to TGM FC est 2024</h2>
@@ -1133,19 +1236,18 @@
   
   <script>
     function switchTab(tabName) {
-      // Hide all tab contents
-      const tabContents = document.querySelectorAll('.tab-content');
+      // Hide all tab contents and search results
+      const tabContents = document.querySelectorAll('.tab-content, .search-results');
       tabContents.forEach(content => content.classList.remove('active'));
       
       // Deactivate all tabs
       const tabs = document.querySelectorAll('.tab');
       tabs.forEach(tab => tab.classList.remove('active'));
       
-      // Activate the selected tab and content
+      // Activate the selected tab or search results
       const targetContent = document.getElementById(tabName);
       if (targetContent) {
         targetContent.classList.add('active');
-        // Scroll to the content
         targetContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       
@@ -1190,8 +1292,114 @@
           playerElement.innerHTML = '';
         }
       }
-   }
+    }
 
-  // Call the function when the page loads
-  window.onload = setPlayerImages;
-</script>
+    // Search functionality
+    function performSearch() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const searchResultsContent = document.getElementById('search-results-content');
+      const searchResults = document.getElementById('search-results');
+
+      // Clear previous results
+      searchResultsContent.innerHTML = '';
+
+      if (!query) {
+        searchResults.classList.remove('active');
+        switchTab('home'); // Show home tab if search is empty
+        return;
+      }
+
+      // Collect searchable content
+      const searchData = [];
+
+      // Fixtures
+      document.querySelectorAll('#fixtures .fixture-list li').forEach(fixture => {
+        const date = fixture.querySelector('.fixture-date').textContent;
+        const match = fixture.querySelector('.fixture-match').textContent;
+        const result = fixture.querySelector('.result-badge').textContent;
+        if (date.toLowerCase().includes(query) || match.toLowerCase().includes(query) || result.toLowerCase().includes(query)) {
+          searchData.push({
+            type: 'Fixture',
+            title: match,
+            description: `${date} - ${result}`,
+            link: '#fixtures'
+          });
+        }
+      });
+
+      // News
+      document.querySelectorAll('#news .news-item').forEach(news => {
+        const title = news.querySelector('h3').textContent;
+        const date = news.querySelector('.news-date').textContent;
+        const content = news.querySelector('.news-content').textContent;
+        if (title.toLowerCase().includes(query) || date.toLowerCase().includes(query) || content.toLowerCase().includes(query)) {
+          searchData.push({
+            type: 'News',
+            title: title,
+            description: `${date} - ${content.slice(0, 100)}...`,
+            link: '#news'
+          });
+        }
+      });
+
+      // Players
+      document.querySelectorAll('#players .player-card').forEach(player => {
+        const name = player.querySelector('.player-name').textContent;
+        const position = player.querySelector('.player-position').textContent;
+        if (name.toLowerCase().includes(query) || position.toLowerCase().includes(query)) {
+          searchData.push({
+            type: 'Player',
+            title: name,
+            description: position,
+            link: '#players'
+          });
+        }
+      });
+
+      // Teams (Trials)
+      document.querySelectorAll('#teams ul li').forEach(team => {
+        const text = team.textContent;
+        if (text.toLowerCase().includes(query)) {
+          searchData.push({
+            type: 'Team',
+            title: text,
+            description: 'Trial information for TGM FC age groups',
+            link: '#teams'
+          });
+        }
+      });
+
+      // Display results
+      if (searchData.length === 0) {
+        searchResultsContent.innerHTML = '<p>No results found.</p>';
+      } else {
+        searchData.forEach(item => {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'search-result-item';
+          resultItem.innerHTML = `
+            <div>
+              <h3>${item.type}: ${item.title}</h3>
+              <p>${item.description}</p>
+              <a href="${item.link}" class="internal-link">View ${item.type}</a>
+            </div>
+          `;
+          searchResultsContent.appendChild(resultItem);
+        });
+      }
+
+      // Show search results and hide other tabs
+      switchTab('search-results');
+    }
+
+    // Trigger search on Enter key
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    // Call setPlayerImages when the page loads
+    window.onload = setPlayerImages;
+  </script>
+</body>
+</html>
