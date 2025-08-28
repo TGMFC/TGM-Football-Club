@@ -169,14 +169,13 @@
       margin: 0 auto;
       padding: 20px;
       padding-top: 80px;
-      /* Watermark styling */
-      background-image: url('tgm-logo.svg');
+      /* Watermark styling - use PNG as primary, SVG as fallback */
+      background-image: url('assets/img/logo-192.png'), url('tgm-logo.svg');
       background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 50%; /* Adjust size to fit content */
-      background-attachment: fixed;
+      background-position: center center; /* Centered for balanced look */
+      background-size: 150px auto; /* Fixed size for crispness, preserves aspect ratio */
+      background-attachment: scroll; /* Scroll for better rendering */
       background-color: var(--light);
-      opacity: 1; /* Ensure content is fully opaque */
       position: relative;
     }
     
@@ -192,8 +191,9 @@
       background-position: inherit;
       background-size: inherit;
       background-attachment: inherit;
-      opacity: 0.1; /* Low opacity for watermark effect */
-      z-index: -1; /* Place behind content */
+      opacity: 0.08; /* Slightly higher for visibility but still subtle */
+      mix-blend-mode: soft-light; /* Smoother blending with background */
+      z-index: -1; /* Behind content */
     }
     
     .tab-content {
@@ -668,7 +668,7 @@
       
       .container {
         padding-top: 60px;
-        background-size: 70%; /* Slightly larger watermark on smaller screens */
+        background-size: 100px auto; /* Smaller watermark for tablets */
       }
       
       .fixture-body {
@@ -718,7 +718,7 @@
       
       .container {
         padding-top: 50px;
-        background-size: 80%; /* Further adjust watermark size for small screens */
+        background-size: 80px auto; /* Even smaller for mobile */
       }
 
       .search-container input {
@@ -1430,4 +1430,3 @@
   </script>
 </body>
 </html>
-
